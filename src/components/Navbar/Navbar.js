@@ -12,14 +12,16 @@ const Navbar = () => {
   return (
     <NavbarStyled>
       <img src={giphyLogo} alt='Giphy Logo' />
-      <input
-        type='text'
-        name='query'
-        id='navbar__query'
-        maxLength='32'
-        placeholder='Type something...'
-      />
-      <i className='fa fa-solid fa-rotate-left'></i>
+      <div className='navbar__search'>
+        <input
+          type='text'
+          name='query'
+          id='navbar__query'
+          maxLength='32'
+          placeholder='Type something...'
+        />
+        <i className='fa fa-solid fa-rotate-left'></i>
+      </div>
     </NavbarStyled>
   );
 };
