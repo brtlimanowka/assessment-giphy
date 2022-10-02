@@ -7,6 +7,7 @@ const NavbarStyled = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   height: 130px;
   background-color: ${(props) => props.theme.colors.backgroundLighter};
   img {
