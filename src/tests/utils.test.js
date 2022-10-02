@@ -1,4 +1,4 @@
-import { queryBuilder } from '../utils/utils';
+import { queryBuilder, debouncer } from '../utils/utils';
 
 describe('queryBuilder', () => {
   test('returns null if no query text is passed', () => {
@@ -18,5 +18,16 @@ describe('queryBuilder', () => {
     expect(builtQuery).toBe(
       'https://api.giphy.com/v1/gifs/search?z3TCxWMXI3poet0DNQBeC8RfYrprX7U1&q=kittens&offset=1&limit=5&rating=G&lang=en'
     );
+  });
+});
+
+describe('debouncer', () => {
+  test('returns null if no function is passed', () => {
+    let debounced = debouncer();
+    expect(debounced).toBe(null);
+  });
+
+  test('debounces function passed as argument', () => {
+    // TODO
   });
 });
