@@ -2,7 +2,11 @@ import React from 'react';
 import SpinnerStyled from './Spinner.styled';
 
 const Spinner = () => {
-  return <SpinnerStyled>Spinner</SpinnerStyled>;
+  return (
+    <SpinnerStyled>
+      <i className='fas fa-solid fa-spinner'></i>
+    </SpinnerStyled>
+  );
 };
 
 export default Spinner;
