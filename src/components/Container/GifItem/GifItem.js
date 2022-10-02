@@ -1,10 +1,15 @@
 import React from 'react';
 
 const GifItem = ({ url, source, description }) => {
+  const imageClickedHandler = () => {
+    window.open(url, '_blank').focus();
+  };
   return (
-    <a href={url} target='_blank' rel='noreferrer'>
-      <img src={source} alt={`Animated GIF: ${description}`} />
-    </a>
+    <div
+      onClick={imageClickedHandler}
+      title={description}
+      className='gif__container'
+      style={{ backgroundImage: `url(${source})` }}></div>
   );
 };
 
