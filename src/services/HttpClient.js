@@ -12,7 +12,7 @@ export const httpClient = async (url) => {
           responseObject.ok = true;
           responseObject.error = null;
           return response.json();
-        }
+        } else throw new Error(response.statusText);
       })
       .then(({ data }) => {
         responseObject.data = data;
