@@ -8,11 +8,7 @@ const theme = {
     font: '#ddd',
     spinner: '#f17104',
     icon: '#66d9ff',
-    buttonFont: '#242527',
-    buttonPrimaryBackground: '#66d9ff',
-    buttonSecondaryBackground: '#b3ecff',
     errorBackground: '#df4e00',
-    disabled: '#bbb',
   },
   font: 'Be Vietnam Pro',
 };

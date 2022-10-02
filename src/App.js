@@ -8,6 +8,12 @@ import { queryBuilder } from './services/QueryBuilder';
 import { httpClient } from './services/HttpClient';
 import './App.css';
 
+const defaults = {
+  ok: false,
+  data: [],
+  error: null,
+};
+
 function App() {
   const [response, setResponse] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +26,7 @@ function App() {
         setResponse(response);
         setIsLoading(false);
       });
-    }
+    } else setResponse(defaults);
   };
 
   const Renderer = () => {
