@@ -7,12 +7,10 @@ const NavbarStyled = styled.nav`
   justify-content: center;
   height: 130px;
   background-color: ${(props) => props.theme.colors.backgroundLighter};
-
   img {
     height: 50px;
     margin-right: 30px;
   }
-
   .navbar__search {
     display: flex;
     align-items: center;
@@ -23,7 +21,6 @@ const NavbarStyled = styled.nav`
       margin-right: 10px;
       outline: none;
     }
-
     i {
       font-size: 20px;
       color: ${(props) => props.theme.colors.background};
