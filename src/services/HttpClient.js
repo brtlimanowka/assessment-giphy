@@ -2,21 +2,30 @@ export const httpClient = async (url) => {
   let responseObject = {
     ok: false,
     data: [],
+    error: null,
   };
-  await fetch(url)
-    .then((response) => {
-      if (response.ok) {
-        responseObject.ok = true;
-        // console.log(response)
-        return response.json();
-      }
-    })
-    .then((data) => {
-      console.log(data);
-      responseObject.data = data;
-    })
-    .finally(() => {
-      // console.log(responseObject);
-      return responseObject;
-    });
+
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          responseObject.ok = true;
+          responseObject.error = null;
+          return response.json();
+        }
+      })
+      .then(({ data }) => {
+        responseObject.data = data;
+      })
+      .catch((error) => {
+        responseObject = {
+          ok: false,
+          data: [],
+          error: error.message,
+        };
+      })
+      .finally(() => {
+        resolve(responseObject);
+      });
+  });
 };

@@ -7,13 +7,15 @@ import { httpClient } from './services/HttpClient';
 import './App.css';
 
 function App() {
-  const queryReceivedHandler = async (query) => {
+  const [response, setResponse] = useState({});
+
+  const queryReceivedHandler = (query) => {
     if (query) {
       const builtQuery = queryBuilder(query);
-      let data = httpClient(builtQuery);
-      console.log(data);
+      httpClient(builtQuery).then((response) => setResponse(response));
     }
   };
+  
   return (
     <Theme>
       <div className='App'>
