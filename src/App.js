@@ -33,10 +33,12 @@ function App() {
     if (isLoading) {
       return <Spinner />;
     } else {
-      if (response.ok && response.data)
+      if (response.ok && response.data.length)
         return <Container gifs={response.data} />;
       if (!response.ok && response.error)
         return <ErrorCard errorMessage={response.error} />;
+      if (response.ok && !response.data.length)
+        return <ErrorCard errorMessage={'No results found'} />;
     }
     return null;
   };
