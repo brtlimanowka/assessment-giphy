@@ -3,11 +3,19 @@ import NavbarStyled from './Navbar.styled.';
 import giphyLogo from '../../assets/images/Giphy-logo.svg';
 
 const Navbar = () => {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
-    // update query
+    // debounce request
   }, []);
+
+  const queryUpdatedHandler = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const clearQueryClickedHandler = () => {
+    setQuery('');
+  };
 
   return (
     <NavbarStyled>
@@ -15,12 +23,17 @@ const Navbar = () => {
       <div className='navbar__search'>
         <input
           type='text'
+          value={query}
           name='query'
           id='navbar__query'
           maxLength='32'
           placeholder='Type something...'
+          onChange={queryUpdatedHandler}
         />
-        <i className='fa fa-solid fa-rotate-left'></i>
+        <i
+          title='Clear search'
+          className={`fa fa-solid fa-rotate-left ${query ? 'enabled' : ''}`}
+          onClick={clearQueryClickedHandler}></i>
       </div>
     </NavbarStyled>
   );
