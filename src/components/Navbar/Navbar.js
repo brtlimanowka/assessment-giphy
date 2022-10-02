@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import NavbarStyled from './Navbar.styled.';
+import giphyLogo from '../../assets/images/Giphy-logo.svg';
 
 const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+  const [query, setQuery] = useState(null);
 
-export default Navbar
+  useEffect(() => {
+    // update query
+  }, []);
+
+  return (
+    <NavbarStyled>
+      <img src={giphyLogo} alt='Giphy Logo' />
+      <input type='text' name='' id='' placeholder='Type something...' />
+    </NavbarStyled>
+  );
+};
+
+export default Navbar;
