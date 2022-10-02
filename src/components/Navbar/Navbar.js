@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import NavbarStyled from './Navbar.styled.';
+import { DebounceInput } from 'react-debounce-input';
 import giphyLogo from '../../assets/images/Giphy-logo.svg';
 
 const Navbar = () => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    // debounce request
-  }, []);
+    console.log(query);
+  }, [query]);
 
   const queryUpdatedHandler = (e) => {
     setQuery(e.target.value);
@@ -21,13 +22,14 @@ const Navbar = () => {
     <NavbarStyled>
       <img src={giphyLogo} alt='Giphy Logo' />
       <div className='navbar__search'>
-        <input
+        <DebounceInput
+          id='navbar__query'
           type='text'
           value={query}
           name='query'
-          id='navbar__query'
           maxLength='32'
           placeholder='Type something...'
+          debounceTimeout={500}
           onChange={queryUpdatedHandler}
         />
         <i

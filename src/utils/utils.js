@@ -7,16 +7,3 @@ export const queryBuilder = (queryText, offset) => {
   }
   return null;
 };
-
-export const debouncer = (func) => {
-  if (func) {
-    let debounceTimer;
-    return () => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        func();
-      }, 500);
-    };
-  }
-  return null;
-};
