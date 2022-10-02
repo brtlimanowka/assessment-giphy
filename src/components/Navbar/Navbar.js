@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NavbarStyled from './Navbar.styled.';
+import NavbarStyled from './Navbar.styled';
 import { DebounceInput } from 'react-debounce-input';
 import giphyLogo from '../../assets/images/Giphy-logo.svg';
 
