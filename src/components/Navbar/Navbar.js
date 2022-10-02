@@ -3,11 +3,12 @@ import NavbarStyled from './Navbar.styled.';
 import { DebounceInput } from 'react-debounce-input';
 import giphyLogo from '../../assets/images/Giphy-logo.svg';
 
-const Navbar = () => {
+const Navbar = ({ onQuery }) => {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    console.log(query);
+    onQuery(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const queryUpdatedHandler = (e) => {
