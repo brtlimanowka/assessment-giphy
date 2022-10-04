@@ -32,6 +32,7 @@ function App() {
   };
 
   useEffect(() => {
+    setItems([]);
     loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentQuery]);
@@ -55,7 +56,7 @@ function App() {
       );
     if (!response.ok && response.error)
       return <ErrorCard errorMessage={response.error} />;
-    if (response.ok && !items.length)
+    if (response.ok && !response.data.length)
       return <ErrorCard errorMessage={'No results found'} />;
     return null;
   };
