@@ -1,11 +1,12 @@
 import React from 'react';
 
-const GifItem = ({ url, source, description }) => {
+const GifItem = ({ forwardRef, url, source, description }) => {
   const imageClickedHandler = () => {
     window.open(url, '_blank').focus();
   };
   return (
     <div
+      ref={forwardRef}
       onClick={imageClickedHandler}
       title={description}
       className='gif__container'
